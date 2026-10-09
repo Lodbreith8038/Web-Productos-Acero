@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Productos de Acero E.I.R.L., empresa comercial de acero, ferretería y materiales para construcción en Arequipa.">
+    <title>Productos de Acero E.I.R.L. | Arequipa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="productos-acero-h2.css">
+    <link rel="icon" type="image/png" href="imagenes/LOGO.png?v=3">
+    <link rel="shortcut icon" href="imagenes/LOGO.png?v=3">
+
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { steel: { dark: '#17212b', blue: '#1668a8' } } } } }
+    </script>
+    <script>
+            // Aplica el tema (oscuro/claro) 
+            (function () {
+                const guardado = localStorage.getItem('tema');
+                const prefiereOscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (guardado === 'oscuro' || (!guardado && prefiereOscuro)) {
+                    document.documentElement.classList.add('dark');
+                }
+            })();
+    </script>
+</head>
+
+<body
+    class="bg-slate-50 text-slate-800 antialiased transition-colors duration-300 dark:bg-[#0d141c] dark:text-slate-200">
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <header
+        class="fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur transition-colors dark:border-white/10 dark:bg-[#0d141c]/90">
+        <nav nav class="mx-auto flex h-20 max-w-7xl items-center justify-between px-2 sm:px-6 lg:px-8">
+            <a href="#inicio" class="flex items-center gap-3 text-steel-dark dark:text-white">
+                <img src="imagenes/LOGO.png" alt="Logotipo de Productos de Acero E.I.R.L."
+                    class="h-11 w-11 object-contain">
+                <span class="text-sm font-extrabold leading-tight tracking-tight sm:text-base">PRODUCTOS<br>DE ACERO
+                    E.I.R.L.</span>
+            </a>
+            <div class="flex items-center gap-2 sm:gap-4">
+                <div class="hidden items-center gap-7 md:flex">
+                    <a href="#nosotros" class="nav-link">Nosotros</a>
+                    <a href="#actividad" class="nav-link">Actividad</a>
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 nav-link">
+                            Catálogo
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <!-- Opciones ocultas que aparecen al pasar el ratón -->
+                        <div
+                            class="absolute left-0 top-full pt-2 w-32 hidden group-hover:block bg-white dark:bg-slate-800 shadow-lg rounded-md border border-slate-200 dark:border-slate-700 z-50">
+                            <a href="diseños.html"
+                                class="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-100 hover:text-steel-blue dark:text-slate-300 dark:hover:bg-slate-700">Diseños</a>
+                        </div>
+                    </div>
+                    <a href="#cotizacion" class="nav-link">Cotización</a>
+                    <a href="#sedes" class="nav-link">Sedes</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </div>
+                <button id="temaToggle" type="button" aria-label="Cambiar entre modo claro y oscuro"
+                    title="Cambiar tema"
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 
+                            text-slate-600 transition hover:border-steel-blue hover:text-steel-blue dark:border-white/15 dark:text-slate-300 dark:hover:text-sky-300">
+                    <i id="temaIconoSol" class="fa-solid fa-sun"></i>
+                    <i id="temaIconoLuna" class="fa-solid fa-moon hidden"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="inicio" class="relative z-10">
+        <!-- BANNER PRINCIPAL DE LA PAGINA-->
+        <section class="hero-pattern relative flex min-h-[620px] items-center overflow-hidden pt-20 text-white">
+            <canvas class="starfield" id="heroStars" aria-hidden="true"></canvas>
+            <div
+                class="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 px-4 py-20 lg:grid-cols-2 sm:px-6 lg:px-8">
+                <div>
+                    <p class="section-label mb-5 text-xs font-bold text-sky-300">Acero · ferretería · construcción</p>
+                    <h1 class="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">Innovación
+                        y Transformación<br>
+                        <span class="font-extrabold text-slate-200">Con más de 18 años de experiencia<br></span>
+                        <span class="font-medium text-slate-200">para los proyectos de Arequipa.</span>
+                    </h1>
+                    <p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-200">Proveemos soluciones confiables en
+                        productos de acero con la experiencia y rapidez que tu proyecto necesita.</p>
+                    <div class="mt-10 flex flex-wrap gap-4">
+                        <a href="#nosotros"
+                            class="rounded bg-steel-blue px-6 py-3 font-bold text-white transition hover:bg-sky-700">Conoce
+                            la empresa</a>
+                        <a href="#sedes"
+                            class="rounded border border-white/40 px-6 py-3 font-bold text-white transition hover:bg-white/10">Ver
+                            sedes</a>
+                        <a href="#cotizacion"
+                            class="rounded bg-white px-6 py-3 font-bold text-steel-dark transition hover:bg-slate-100">Solicitar
+                            cotización</a>
+                    </div>
+                </div>
+                <!-- Contenedor del video en el lado derecho -->
+                <div class="relative mx-auto w-full max-w-md lg:max-w-none">
+                    <div
+                        class="relative overflow-hidden rounded-2xl border border-white/20 bg-slate-900/60 p-2 shadow-2xl backdrop-blur-md">
+                        <!-- Video de 20s en bucle, silenciado para reproducción automática limpia -->
+                        <video class="h-80 w-full rounded-xl object-cover lg:h-[400px]" autoplay muted loop playsinline>
+                            <source src="video/Laser.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros" class="section-alt">
+            <div class="page-max-width grid gap-12 lg:grid-cols-2">
+                <div>
+                    <p class="section-label text-xs font-bold text-steel-blue">Quiénes somos</p>
+                    <h2 class="title-section sm:text-4xl">Una empresa arequipeña con trayectoria comercial</h2><br>
+                    <p><b>Somos una empresa con casi dos decadas de experiencia, con acceso a lo ultimo en tecnologia de
+                            laseres
+                            y desarrollo en plataformas como AUTOCAD
+                        </b></p>
+                    <p class="mt-6 max-w-xl leading-7 text-slate-600 dark:text-slate-300">Productos de
+                        Acero E.I.R.L. es una empresa que inició actividades
+                        el 1 de junio
+                        de 2008. Nuestra principal actividad se relaciona con la transormacion
+                        de productos de acero, ferretería, materiales, maquinaria y equipos laseres.</p>
+                    <p class="text-copy">Atendemos desde Arequipa, nos puedes encontrar en nuestras sedes de Mariano
+                        Melgar y Cerro Colorado.</p>
+                </div>
+                <!-- Informacion precisa de la empresa -->
+                <dl
+                    class="data-card grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200 sm:grid-cols-2 dark:border-white/10 dark:bg-white/10">
+                    <div class="data-cell">
+                        <dt class="data-term">
+                            RUC
+                        </dt>
+                        <dd class="mt-2 text-xl font-bold text-steel-dark dark:text-white">
+                            20454856687
+                        </dd>
+                    </div>
+                    <div class="data-cell">
+                        <dt class="data-term">
+                            Estado
+                        </dt>
+                        <dd class="mt-2 text-xl font-bold text-emerald-700 dark:text-emerald-400">
+                            Activo · Habido
+                        </dd>
+                    </div>
+                    <div class="data-cell">
+                        <dt class="data-term">
+                            Constitución
+                        </dt>
+                        <dd class="mt-2 text-lg font-bold text-steel-dark dark:text-white">
+                            E.I.R.L.
+                        </dd>
+                    </div>
+                    <div class="data-cell">
+                        <dt class="data-term">
+                            Inicio de actividades
+                        </dt>
+                        <dd class="mt-2 text-lg font-bold text-steel-dark dark:text-white">
+                            01/06/2008
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- Seccion de actividades-descripcion -->
+        <section id="actividad" class="section-light" aria-labelledby="catalogo-title">
+            <div class="page-max-width">
+                <div class="max-w-2xl">
+                    <p class="section-label text-xs font-bold text-steel-blue">
+                        Actividad comercial
+                    </p>
+                    <h2 class="title-section">
+                        Soluciones y creaciones para distintos sectores
+                    </h2>
+                    <p class="text-copy">
+                        Nuestra actividad se encuentra vinculada a la venta de artículos de ferretería,
+                        materiales para construcción, maquinaria, equipos y productos del rubro del acero.
+                    </p>
+                </div>
+                <div class="mt-10 grid gap-6 md:grid-cols-3">
+                    <article class="card-plain">
+                        <i class="fa-solid fa-helmet-safety text-2xl text-steel-blue"></i>
+                        <h3 class="mt-5 text-lg font-bold text-steel-dark dark:text-white">
+                            Construcción
+                        </h3>
+                        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                            Materiales y productos relacionados con proyectos de obra y construcción, realizados con
+                            maquinas prensadoras.
+                        </p> <br>
+                        <div class="imagenes_trabajo">
+                            <img src="imagenes\taller.png" alt="taller">
+                        </div>
+                    </article>
+                    <article class="card-plain">
+                        <i class="fa-solid fa-screwdriver-wrench text-2xl text-steel-blue">
+                        </i>
+                        <h3 class="mt-5 text-lg font-bold text-steel-dark dark:text-white">
+                            Ferretería y acero
+                        </h3>
+                        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                            Comercialización de artículos de ferretería y productos de acero, como planchas, laminas y
+                            perfiles.
+                        </p> <br>
+                        <div class="imagenes_trabajo">
+                            <img src="imagenes\taller2.png" alt="ejemplo1">
+                        </div>
+                    </article>
+                    <article class="card-plain">
+                        <i class="fa-solid fa-industry text-2xl text-steel-blue"></i>
+                        <h3 class="mt-5 text-lg font-bold text-steel-dark dark:text-white">
+                            Software 3D y equipos láser
+                        </h3>
+                        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                            Utilzamos softwares 3D como AutoCAD para la modificacion en laminas de acero con láseres de
+                            ultima tecnología.</p>
+                        <br>
+                        <div class="imagenes_trabajo">
+                            <img src="imagenes\modelo.png" alt="ejemplo1">
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="desarrollo"
+            class="border-y border-slate-200 bg-slate-100 py-20 transition-colors dark:border-white/10 dark:bg-[#111a23]"
+            aria-labelledby="cotizacion-title">
+            <div class="page-max-width grid items-center gap-12 lg:grid-cols-2">
+
+                <!-- Galería Superpuesta -->
+                <div class="page-max-width">
+                    <p class="text-xs font-bold uppercase tracking-wide text-steel-blue">DESARROLLO</p>
+                    <h3 class="title-section">Precisión en cada corte, dobleces y estructura</h3>
+                    <p class="text-copy">
+                        Trabajamos con planchas, tubos electrosoldados y acero especializado para dar forma a los
+                        requerimientos <br>
+                        más exigentes de la industria y la construcción.
+                    </p>
+                </div>
+
+                <!-- CARRUSEL -->
+                <div class="flex w-full justify-center">
+                    <div class="galeria-carrusel">
+                        <!-- FLECHA IZQUIERDA -->
+                        <button class="flecha izquierda" onclick="mover(-1)">
+                            ‹
+                        </button>
+                        <!-- CARRUSEL -->
+                        <div class="carrusel">
+
+                            <div class="imagen pos0">
+                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800">
+                            </div>
+                            <div class="imagen pos1">
+                                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800">
+                            </div>
+                            <div class="imagen pos2">
+                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800">
+                            </div>
+                            <div class="imagen pos3">
+                                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800">
+                            </div>
+                            <div class="imagen pos4">
+                                <img src="https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?w=800">
+                            </div>
+                        </div>
+
+                        <!-- FLECHA DERECHA -->
+
+                        <button class="flecha derecha" onclick="mover(1)">
+                            ›
+                        </button>
+                        <div class="titulo">
+                            Proyectos
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="servicios" class="section-light" aria-labelledby="catalogo-title">
+            <div class="page-max-width">
+                <div class="max-w-3xl">
+                    <p class="section-label text-xs font-bold text-steel-blue">Fabricación y transformación</p>
+                    <h2 id="servicios-title" class="title-section">Servicios
+                        para proyectos con alta exigencia técnica</h2>
+                    <p class="text-copy">Desarrollamos piezas
+                        industriales, estructuras metálicas y elementos decorativos a
+                        medida, con asesoría de expertos y diseño técnico según las
+                        necesidades de cada proyecto.</p>
+                </div>
+                <div class="mt-10 grid gap-7 lg:grid-cols-3">
+                    <article class="card-servicio">
+                        <div class="icon-box"><i class="fa-solid fa-microchip"></i></div>
+                        <h3 class="mt-5 text-xl font-bold text-steel-dark dark:text-white">Tecnología y precisión</h3>
+                        <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                            <li>
+                                <strong class="text-slate-800 dark:text-slate-100">Corte láser de alta gama:</strong>
+                                cortes milimétricos en planchas de acero, LAC y LAF, calaminas y coberturas zinc.
+                            </li>
+                            <li>
+                                <strong class="text-slate-800 dark:text-slate-100">Plegado CNC:</strong>
+                                doblado computarizado con acabados limpios y exactitud
+                                dimensional.
+                            </li>
+                            <li>
+                                <strong class="text-slate-800 dark:text-slate-100">Corte plasma decorativo:</strong>
+                                diseños personalizados y formas complejas en metal.
+                            </li>
+                        </ul>
+                    </article>
+                    <article class="card-servicio">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-screwdriver-wrench text-2xl text-steel-blue"></i>
+                        </div>
+                        <h3 class="mt-5 text-xl font-bold text-steel-dark dark:text-white">Metalmecánica
+                            industrial</h3>
+                        <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                            <li>
+                                <strong class="text-slate-800 dark:text-slate-100">Piezas de alta precisión:
+                                </strong>
+                                componentes para minería, agricultura, industria naval, aeronáutica,
+                                médica y automotriz.
+                            </li>
+                            <li>
+                                <strong class="text-slate-800 dark:text-slate-100">Estructuras metálicas:
+                                </strong> mesas de trabajo, barandas, portones, tanques y cocinas industriales.
+                            </li>
+                            <li>
+                                <strong class="text-slate-800 dark:text-slate-100">Soldadura especializada:
+                                </strong> GTAW/TIG para acero inoxidable, carbono y aluminio, además de SMAW por arco
+                                eléctrico.
+                            </li>
+                        </ul>
+                    </article>
+                    <article class="card-servicio">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-compass-drafting">
+                            </i>
+                        </div>
+                        <h3 class="mt-5 text-xl font-bold text-steel-dark dark:text-white">Arquitectura y diseño
+                        </h3>
+                        <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                            <li>
+                                <strong class="text-slate-800 dark:text-slate-100">Identidad corporativa:
+                                </strong>
+                                letras metálicas planas y logotipos corpóreos para fachadas.
+                            </li>
+                            <li>
+                                <strong class="text-slate-800 dark:text-slate-100">Interiores y fachadas:
+                                </strong>
+                                paneles calados, celosías y separadores de ambientes.
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!--            <section id="actividad" class="section-alt">-->
+        <section id="Tecnologia" class="section-alt" aria-labelledby="cotizacion-title">
+
+            <div class="page-max-width grid items-center gap-12 lg:grid-cols-2">
+
+                <!-- TEXTO -->
+                <div class="page-max-width">
+
+                    <p class="section-label text-xs font-bold text-steel-blue">
+                        TECNOLOGÍA Y PRECISIÓN
+                    </p>
+
+                    <h2 class="title-section">
+                        Corte láser y fabricación de alta precisión
+                    </h2>
+
+                    <p class="mt-6 max-w-xl mx-auto leading-7 text-slate-600 dark:text-slate-300 lg:mx-0">
+                        <b>
+                            Aplicamos tecnología avanzada y software especializado para transformar
+                            planchas y perfiles metálicos con exactitud milimétrica.
+                        </b>
+                    </p>
+
+                    <p class="mt-6 max-w-xl mx-auto leading-7 text-slate-600 dark:text-slate-300 lg:mx-0">
+                        Desarrollamos componentes y piezas a medida que responden a los requerimientos
+                        más exigentes de la industria y la construcción.
+                    </p>
+
+                </div>
+                <!-- CARRUSEL -->
+                <div class="flex w-full justify-center">
+                    <div class="galeria-stacked" aria-label="Galería de tecnología y fabricación">
+                        <!-- Imagen 1 -->
+                        <div class="galeria-stacked-item">
+                            <img src="imagenes/workers.png" alt="Taller de fabricación">
+                        </div>
+                        <!-- Imagen 2 -->
+                        <div class="galeria-stacked-item">
+                            <img src="imagenes/cortelaser.png" alt="Maquinaria y taller">
+                        </div>
+                        <!-- Imagen 3 -->
+                        <div class="galeria-stacked-item">
+                            <img src="imagenes/maquina.png" alt="Proceso de fabricación">
+                        </div>
+                        <!-- Imagen 4 -->
+                        <div class="galeria-stacked-item">
+                            <img src="imagenes/LAMINASdobladas.png" alt="Área de trabajo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="Productos" class="section-light" aria-labelledby="catalogo-title">
+            <div class="page-max-width">
+                <p class="section-label text-xs font-bold text-steel-blue">PRODUCTOS</p>
+                <h2 class="title-section">
+                    Ventas de planchas y laminas de acero
+                </h2>
+                <p class="mt-4 max-w-3xl leading-7 text-slate-600 dark:text-slate-300">
+                    Vendemos planchas y laminas de acero especializado para dar forma a los requerimientos más exigentes
+                    de la industria y la construcción.
+                </p>
+                <div class="chip-list">
+                    <span class="chip">
+                        Planchas de acero</span>
+                    <span class="chip">
+                        Laminas de acero</span>
+                    <span class="chip">
+                        LAC</span>
+                    <span class="chip">
+                        LAF</span>
+                    <span class="chip">
+                        Acero inoxcidable</span>
+                    <span class="chip">
+                        Acero galvanizado</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seccion de diseños AutoCAD -->
+        <section id="Diseños" class="section-alt" aria-labelledby="diseños-title">
+            <div class="page-max-width">
+                <p class="section-label text-xs font-bold text-steel-blue">DISEÑOS</p>
+                <h2 class="title-section">
+                    Diseños en planchas y laminas de acero
+                </h2>
+                <p class="mt-4 max-w-3xl leading-7 text-slate-600 dark:text-slate-300">
+                    Diseñamos tu idea en modelos de AutoCAD de acuerdo al material que neceitas <br>
+                    Revisa nuestro catalogo en: <a href="diseños.html"
+                        class="text-steel-blue hover:text-sky-700 dark:text-sky-300 dark:hover:text-sky-500">Diseños</a>
+                </p>
+            </div>
+        </section>
+
+
+        <section id="cotizacion" class="section-light" aria-labelledby="cotizacion-title">
+            <div class="page-max-width">
+                <div class="max-w-3xl">
+                    <p class="section-label text-xs font-bold text-steel-blue">Solicita una cotización</p>
+                    <h2 id="cotizacion-title" class="title-section sm:text-4xl">
+                        Cuéntanos qué necesitas para tu proyecto
+                    </h2>
+                    <p class="text-copy">
+                        Déjanos tus datos, describe el trabajo o material que necesitas y, si cuentas con un plano,
+                        puedes adjuntarlo para que el equipo pueda revisarlo.
+                    </p>
+                </div>
+
+                <div class="mt-10 grid gap-8 lg:grid-cols-3">
+                    <div
+                        class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-2 sm:p-8 dark:border-white/10 dark:bg-[#0f1720] dark:shadow-none">
+                        <form id="cotizacionForm" class="space-y-6 form-cotizacion"
+                            action="https://formsubmit.co/administracion_02@productosdeacero.pe" method="POST"
+                            enctype="multipart/form-data" target="hidden_iframe">
+
+
+                            <input type="hidden" name="_subject"
+                                value="Nueva solicitud de cotización - Productos de Acero E.I.R.L.">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_captcha" value="false">
+
+                            <div class="grid gap-5 sm:grid-cols-2">
+                                <div>
+                                    <label for="cot-nombre" class="text-label">Nombre completo *</label>
+                                    <input id="cot-nombre" name="nombre" type="text" required class="form-input"
+                                        placeholder="Tu nombre">
+                                </div>
+                                <div>
+                                    <label for="cot-empresa" class="text-label">Empresa</label>
+                                    <input id="cot-empresa" name="empresa" type="text" class="form-input"
+                                        placeholder="Nombre de tu empresa">
+                                </div>
+                                <div>
+                                    <label for="cot-telefono" class="text-label">Teléfono / WhatsApp *</label>
+                                    <input id="cot-telefono" name="telefono" type="tel" required class="form-input"
+                                        placeholder="+51 9XX XXX XXX">
+                                </div>
+                                <div>
+                                    <label for="cot-email" class="text-label">Correo electrónico</label>
+                                    <input id="cot-email" name="email" type="email" class="form-input"
+                                        placeholder="correo@empresa.com">
+                                </div>
+                            </div>
+
+                            <div class="grid gap-5 sm:grid-cols-2">
+                                <div>
+                                    <label for="cot-tipo" class="text-label">¿Qué necesitas?</label>
+                                    <select id="cot-tipo" name="tipo" class="select-input">
+                                        <option value="Productos de acero">
+                                            Productos de acero
+                                        </option>
+                                        <option value="Corte / transformación">
+                                            Corte / transformación
+                                        </option>
+                                        <option value="Fabricación personalizada">
+                                            Fabricación personalizada
+                                        </option>
+                                        <option value="Estructura metálica">
+                                            Estructura metálica
+                                        </option>
+                                        <option value="Planchas de acero">
+                                            Planchas de acero
+                                        </option>
+                                        <option value="Laminas de acero">
+                                            Laminas de acero
+                                        </option>
+                                        <option value="Otro">
+                                            Otro
+                                        </option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="cot-cantidad" class="text-label">Cantidad aproximada</label>
+                                    <input id="cot-cantidad" name="cantidad" type="text" class="form-input"
+                                        placeholder="Ej. 10 unidades">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="cot-detalles" class="text-label">Detalles del proyecto *</label>
+                                <textarea id="cot-detalles" name="detalles" rows="5" required class="textarea-input"
+                                    placeholder="Indica medidas, espesor, material, cantidad, tipo de trabajo o cualquier detalle importante."></textarea>
+                            </div>
+
+                            <div>
+                                <label class="text-label">Adjuntar plano o archivo</label>
+                                <label for="cot-archivo" class="upload-zone">
+                                    <i class="fa-solid fa-cloud-arrow-up text-2xl text-steel-blue"></i>
+                                    <span class="upload-text">Seleccionar archivo</span>
+                                    <span class="upload-hint">PDF, DWG, DXF, JPG o PNG · hasta 10 MB</span>
+                                    <input id="cot-archivo" name="archivo" type="file" class="hidden"
+                                        accept=".pdf,.dwg,.dxf,.jpg,.jpeg,.png">
+                                </label>
+                                <p id="cot-archivo-nombre" class="mt-2 text-xs text-slate-500 dark:text-slate-400"></p>
+                            </div>
+
+                            <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+                                <button type="submit" class="btn-primary">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    Enviar solicitud de cotización
+                                </button>
+                                <a href="#contacto" class="btn-secondary">
+                                    Ver contacto
+                                </a>
+                            </div>
+
+                            <p id="cotizacionMensaje"
+                                class="hidden rounded-lg bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300">
+                                ¡Solicitud enviada correctamente! Hemos recibido tu solicitud de cotización y nos
+                                pondremos en contacto contigo.
+                            </p>
+                            <p id="cotizacionError" class="form-error hidden" role="alert">No pudimos confirmar el
+                                envío. Revisa tu conexión e inténtalo nuevamente o escríbenos por WhatsApp.</p>
+                            <div id="cotizacionCargando" class="form-loading" hidden role="status" aria-live="polite">
+                                <span class="form-loading-spinner" aria-hidden="true"></span>
+                                <p>Enviando tu solicitud…</p>
+                                <small>Por favor no cierres esta página.</small>
+                            </div>
+                        </form>
+                        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+                    </div>
+
+                    <aside class="space-y-6">
+                        <div class="rounded-xl bg-steel-dark p-7 text-white shadow-sm">
+                            <i class="fa-solid fa-file-invoice-dollar text-2xl text-sky-300"></i>
+                            <h3 class="mt-4 text-xl font-bold">¿Tienes un plano?</h3>
+                            <p class="mt-3 text-sm leading-6 text-slate-300">
+                                Puedes adjuntar tu archivo para que la solicitud de cotización tenga la mayor cantidad
+                                de información posible.
+                            </p>
+                        </div>
+
+                        <div class="rounded-xl bg-steel-dark p-7 text-white shadow-sm">
+                            <h3 class="mt-4 text-xl font-bold">Información de la empresa</h3>
+                            <div class="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+                                <p class="mt-3 text-sm leading-6 text-slate-300"><strong>RUC:</strong> 20454856687</p>
+                                <p class="mt-3 text-sm leading-6 text-slate-300"><strong>Ciudad:</strong> Arequipa, Perú
+                                </p>
+                                <p class="mt-3 text-sm leading-6 text-slate-300"><strong>Sedes:</strong> Mariano Melgar
+                                    y Cerro Colorado</p>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section id="sedes"
+            class="border-y border-slate-200 relative overflow-hidden bg-steel-dark py-20 text-white transition-colors dark:border-white/10">
+            <canvas class="starfield" id="sedesStars" aria-hidden="true"></canvas>
+            <div class="relative z-10 page-max-width">
+                <p class="section-label text-xs font-bold text-sky-300">Arequipa, Perú</p>
+                <h2 class="mt-3 text-3xl font-extrabold tracking-tight">Encuentranos en nuestras sedes</h2>
+                <div class="mt-10 grid gap-6 md:grid-cols-2">
+                    <article class="card-sede">
+                        <a class="fa-solid fa-location-dot text-xl text-sky-300"
+                            href="https://maps.app.goo.gl/UHefQvh9EZp52B6R6"></a>
+                        <h3 class="mt-4 text-xl font-bold">Mariano Melgar</h3>
+                        <p class="mt-2 leading-7 text-slate-300">Malecón Zolezzi N.º 212, Urb. San Lorenzo, Mariano
+                            Melgar, Arequipa.</p>
+                        <a class="mt-4 text-sm font-semibold text-sky-200"
+                            href="https://maps.app.goo.gl/UHefQvh9EZp52B6R6">Sede principal</a>
+                    </article>
+                    <article class="card-sede">
+                        <a class="fa-solid fa-location-dot text-xl text-sky-300"
+                            href="https://maps.app.goo.gl/LndbkK2N4b9Pofao7"></a>
+                        <h3 class="mt-4 text-xl font-bold">Cerro Colorado</h3>
+                        <p class="mt-2 leading-7 text-slate-300">Lote 11, Mz. G, Asociación Santa María, Cerro Colorado,
+                            Arequipa.</p>
+                        <a class="mt-4 text-sm font-semibold text-sky-200"
+                            href="https://maps.app.goo.gl/LndbkK2N4b9Pofao7">Sede secundaria</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--Pie de pagina- aniadido de iformacion de contacto*-->
+    <footer id="contacto" class="bg-slate-950 py-12 text-slate-300">
+        <div class="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-4 sm:px-6 md:flex-row lg:px-8">
+            <div class="flex items-start gap-3">
+                <!-- Logo -->
+                <img src="imagenes/LOGO.png" alt="Logotipo de Productos de Acero E.I.R.L."
+                    class="h-12 w-12 rounded bg-white object-contain p-1">
+                <div>
+                    <p class="text-lg font-extrabold text-white">PRODUCTOS DE ACERO E.I.R.L.</p>
+                    <p class="mt-2 max-w-md text-sm leading-6">Productos y transformacion de acero, ferreteria y
+                        materiales en Arequipa.</p>
+                </div>
+            </div>
+            <div class="md:text-right">
+                <p class="text-sm font-bold text-white">Contacto</p>
+                <a class="contact-link mt-2 inline-block text-sm text-sky-300" href="tel:+51954182811">+51 954 182
+                    811</a>
+                <p class="mt-2 text-xs text-slate-500">Lunes a viernes: 8:00 AM - 6:00 PM</p>
+                <p class="mt-2 text-xs text-slate-500">Sabados: 8:00 AM - 3:00 PM</p>
+
+            </div>
+        </div>
+        <p class="mx-auto mt-10 max-w-7xl border-t border-white/10 px-4 pt-6 text-xs text-slate-500 sm:px-6 lg:px-8">©
+            2026 Productos de Acero E.I.R.L. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/51954182811" id="whatsappFloat"
+        class="fixed bottom-6 right-6 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition hover:scale-105 hover:shadow-xl"
+        aria-label="Contactar por WhatsApp" title="Escríbenos por WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+    <script src="script.js"></script>
+</body>
+
+</html>

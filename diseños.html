@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Catálogo de Diseños AutoCAD · Productos de Acero E.I.R.L.</title>
+
+  <!-- Fuente global utilizada por el diseño -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="catalogo-autocad.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <a class="logo" href="#"><span>PRODUCTOS<br>DE ACERO E.I.R.L.</span></a>
+      <nav>
+        <a href="#lac">LAC</a><a href="#laf">LAF</a><a href="#galv">Galvanizado</a><a href="#inox">Inoxidable</a>
+        <a href="#cotizar">Cotización</a><button id="tg" aria-label="Cambiar tema">☾</button></nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Diseños AutoCAD · Corte · Plancha de acero</div>
+        <h1>Catálogo de <br>Diseños <span>listos para corte y fabricación.</span></h1>
+        <p>Explora nuestros planos en AutoCAD organizados por tipo de plancha: LAC, LAF, acero galvanizado y acero
+          inoxidable.</p>
+        <div class="btns"><a class="btn b1" href="#lac">Ver catálogo</a><a class="btn b2" href="#galv">Por
+            material</a><a class="btn b3" href="#cotizar">Solicitar cotización</a></div>
+      </div>
+      <div class="glass"><svg id="heroSvg" viewBox="0 0 480 300"></svg></div>
+    </div>
+  </div>
+
+  <section id="lac">
+    <div class="wrap">
+      <div class="tag">Sección 01</div>
+      <h2>Plancha LAC · Laminada en caliente</h2>
+      <p class="lead">Planchas de uso estructural y pesado. Diseños para soportes, bases, bridas y piezas de gran
+        espesor.</p>
+      <div class="chips"><span>Estructuras</span><span>Espesores gruesos</span><span>Corte láser / plasma</span></div>
+      <div class="grid" data-m="LAC" data-c="#f59e0b"></div>
+    </div>
+  </section>
+
+  <section id="laf" class="alt">
+    <div class="wrap">
+      <div class="tag">Sección 02</div>
+      <h2>Plancha LAF · Laminada en frío</h2>
+      <p class="lead">Acabado liso y mayor precisión dimensional. Ideal para gabinetes, tapas, paneles y piezas de
+        detalle.</p>
+      <div class="chips"><span>Acabado fino</span><span>Precisión</span><span>Plegado y corte</span></div>
+      <div class="grid" data-m="LAF" data-c="#38bdf8"></div>
+    </div>
+  </section>
+
+  <section id="galv">
+    <div class="wrap">
+      <div class="tag">Sección 03</div>
+      <h2>Acero galvanizado</h2>
+      <p class="lead">Resistencia a la corrosión para exteriores, ductos, techos y cerramientos. Diseños listos para
+        producción.</p>
+      <div class="chips"><span>Anticorrosivo</span><span>Exteriores</span><span>Ductería</span></div>
+      <div class="grid" data-m="GALV" data-c="#2dd4bf"></div>
+    </div>
+  </section>
+
+  <section id="inox" class="alt">
+    <div class="wrap">
+      <div class="tag">Sección 04</div>
+      <h2>Acero inoxidable</h2>
+      <p class="lead">Diseños para industria alimentaria, mobiliario y decoración, con acabados higiénicos y duraderos.
+      </p>
+      <div class="chips"><span>Higiene</span><span>Decorativo</span><span>Alta durabilidad</span></div>
+      <div class="grid" data-m="INOX" data-c="#a78bfa"></div>
+    </div>
+  </section>
+
+  <section class="cta" id="cotizar">
+    <div class="wrap">
+      <div class="tag">Cotización</div>
+      <h2>¿Tienes un diseño o necesitas uno?</h2>
+      <p>Envíanos tu archivo DWG o elige un modelo del catálogo y te cotizamos el corte.</p>
+      <a href="index.html#cotizacion" class="btn b3">Solicitar cotización</a>
+    </div>
+  </section>
+  <footer>© Productos de Acero E.I.R.L. · Arequipa</footer>
+
+  <script src="catalogo-autocad.js"></script>
+</body>
+
+</html>

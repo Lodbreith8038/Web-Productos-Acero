@@ -1,0 +1,962 @@
+:root {
+    --steel-dark: #17212b;
+    --steel-blue: #1668a8;
+    --steel-light: #eaf1f5;
+}
+
+body { 
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; 
+}
+
+/* ============ Seccion de estilos de texto =========== */
+/* ============ CLASES DE INPUTS Y FORMULARIOS ============ */
+.form-input {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid #cbd5e1;
+    padding: 0.75rem 1rem;
+    outline: none;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+}
+
+.form-input:focus {
+    border-color: var(--steel-blue);
+    box-shadow: 0 0 0 2px rgba(102, 205, 255, 0.1);
+}
+
+.dark .form-input {
+    border-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.dark .form-input::placeholder {
+    color: #94a3b8;
+}
+
+/* ============ CLASES DE TEXTO Y PÁRRAFOS ============ */
+.text-label {
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.dark .text-label {
+    color: #cbd5e1;
+}
+
+.text-body {
+    margin-top: 1.5rem;
+    max-width: 42rem;
+    line-height: 1.75;
+    color: #475569;
+}
+
+.dark .text-body {
+    color: #cbd5e1;
+}
+
+/* ============ CLASES DE BORDES Y SOMBRAS ============ */
+.card-base {
+    border-radius: 0.75rem;
+    border: 1px solid #e2e8f0;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dark .card-base {
+    border-color: rgba(255, 255, 255, 0.1);
+    background-color: #0f1720;
+    box-shadow: none;
+}
+
+.card-large {
+    border-radius: 0.75rem;
+    border: 1px solid #e2e8f0;
+    padding: 1.75rem;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dark .card-large {
+    border-color: rgba(255, 255, 255, 0.1);
+    background-color: #0f1720;
+    box-shadow: none;
+}
+
+/* ============ CLASES DE BOTONES ============ */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--steel-blue);
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0d5a99;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    color: #475569;
+    transition: all 0.3s;
+    background-color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #f1f5f9;
+}
+
+.dark .btn-secondary {
+    border-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    background-color: transparent;
+}
+
+.dark .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ============ CLASES DE ICONOS ============ */
+.icon-small {
+    font-size: 1.25rem;
+    color: var(--steel-blue);
+}
+
+.icon-medium {
+    font-size: 1.5rem;
+    color: var(--steel-blue);
+}
+
+.icon-large {
+    font-size: 2rem;
+    color: var(--steel-blue);
+}
+
+/* ============ CLASES DE TÍTULOS ============ */
+.title-section {
+    margin-top: 0.75rem;
+    font-size: 1.875rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--steel-dark);
+}
+
+.dark .title-section {
+    color: white;
+}
+
+.title-card {
+    margin-top: 1.25rem;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: var(--steel-dark);
+}
+
+.dark .title-card {
+    color: white;
+}
+
+/* ============ CLASES DE ESPACIOS ============ */
+.gap-responsive {
+    display: grid;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .gap-responsive {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .gap-responsive {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ============ CLASES DE SELECTS ============ */
+.select-input {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid #cbd5e1;
+    background-color: white;
+    padding: 0.75rem 1rem;
+    color: #475569;
+    outline: none;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+.select-input:focus {
+    border-color: var(--steel-blue);
+    box-shadow: 0 0 0 2px rgba(102, 205, 255, 0.1);
+}
+
+.dark .select-input {
+    border-color: rgba(255, 255, 255, 0.15);
+    background-color: #1a2633;
+    color: white;
+}
+
+/* ============ CLASES DE ÁREAS DE TEXTO ============ */
+.textarea-input {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid #cbd5e1;
+    padding: 0.75rem 1rem;
+    outline: none;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+}
+
+.textarea-input:focus {
+    border-color: var(--steel-blue);
+    box-shadow: 0 0 0 2px rgba(102, 205, 255, 0.1);
+}
+
+.dark .textarea-input {
+    border-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.dark .textarea-input::placeholder {
+    color: #94a3b8;
+}
+
+/* ============ CLASES DE CONTENEDORES ============ */
+.container-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .container-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.page-max-width {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+    .page-max-width {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .page-max-width {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* ============ CLASES DE BORDES DECORATIVOS ============ */
+.border-accent-top {
+    border-top: 3px solid var(--steel-blue);
+}
+
+.border-light {
+    border: 1px solid #e2e8f0;
+}
+
+.dark .border-light {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ============ CLASES DE UPLOAD ============ */
+.upload-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: 2px dashed #cbd5e1;
+    background-color: #f8fafc;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.upload-zone:hover {
+    border-color: var(--steel-blue);
+    background-color: rgba(22, 104, 168, 0.05);
+}
+
+.dark .upload-zone {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark .upload-zone:hover {
+    background-color: rgba(22, 104, 168, 0.1);
+}
+
+.upload-text {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.dark .upload-text {
+    color: #e2e8f0;
+}
+
+.upload-hint {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.dark .upload-hint {
+    color: #cbd5e1;
+}
+
+
+
+/* video */ 
+/* Contenedor principal */
+.video-wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Tarjeta con efecto cristal (Borde) */
+.video-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem; /* Equivalente a rounded-2xl */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(15, 23, 42, 0.6); /* Color slate-900 al 60% */
+    padding: 0.5rem; /* Equivalente a p-2 */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Soporte para Safari */
+}
+
+/* Comportamiento del video en móvil (proporción perfecta) */
+.video-content {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Evita que se deforme en celulares */
+    border-radius: 0.75rem; /* Equivalente a rounded-xl */
+    object-fit: cover;
+}
+
+/* Ajuste para pantallas grandes (Tablets y Escritorio) */
+@media (min-width: 1024px) {
+    .video-content {
+        height: 400px;
+    }
+}
+
+/* valores del fondo de banner */
+.hero-pattern {
+            background-color: var(--steel-dark);
+            background-image: linear-gradient(90deg, rgba(14, 25, 35, .90), rgba(14, 25, 35, .45)), url('https://images.unsplash.com/photo-1565522749008-01d0144d852a?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-pattern::before {
+            content: "";
+            position: absolute;
+            inset: -50%;
+            z-index: 1;
+            background: radial-gradient(circle at 50% 50%, rgba(22, 104, 168, .25), rgba(120, 90, 255, .20), rgba(255, 120, 50, .15), transparent 60%);
+            background-size: 200% 200%;
+            animation: rgbAuraMove 12s ease-in-out infinite alternate;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+        @keyframes rgbAuraMove {
+            0% { transform: translate(-10%, -10%) scale(1); background-position: 0% 50%; }
+            50% { transform: translate(10%, 10%) scale(1.15); background-position: 100% 50%; }
+            100% { transform: translate(-5%, 5%) scale(1); background-position: 50% 100%; }
+        }
+        .section-label {
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+        .data-card { border-top: 3px solid var(--steel-blue); }
+        .contact-link:hover { color: #fff; }
+
+/* ============ Cursor personalizado: punto azul ============ */
+body, a, button, input, textarea, select, label, [role="button"] {
+    cursor: none;
+}
+
+/* tamaño del cursor y  reactividad con elementos */
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 14px 4px rgba(22, 104, 168, .55);
+    transition: width .2s ease, height .2s ease, box-shadow .2s ease;
+    animation: dotColorCycle 6s ease-in-out infinite;
+}
+
+.cursor-dot.is-hover {
+    width: 32px;
+    height: 32px;
+    box-shadow: 0 0 24px 8px rgba(255, 255, 255, .5);
+}
+
+@keyframes dotColorCycle {
+    0%   { background-color: #b7c2cc; } /* gris */
+    33%  { background-color: #ffffff; } /* blanco */
+    66%  { background-color: var(--steel-blue); } /* azul */
+    100% { background-color: #b7c2cc; }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .cursor-dot { display: none; }
+    body, a, button, input, textarea, select, label, [role="button"] { cursor: auto; }
+}
+
+/* ============ Atardecer con tonos RGB cambiantes ============ */
+.hero-pattern::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(120deg,
+        rgba(120, 90, 255, .32),
+        rgba(22, 104, 168, .42),
+        rgba(200, 205, 212, .22),
+        rgba(255, 255, 255, .14));
+    background-size: 320% 320%;
+    animation: auroraShift 3s ease-in-out infinite;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+@keyframes auroraShift {
+    0%   { background-position: 0% 40%; }
+    50%  { background-position: 100% 60%; }
+    100% { background-position: 0% 40%; }
+}
+
+/* ============ Fondo tipo espacio (campo de estrellas) ============ */
+.starfield {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cursor-dot,
+    .hero-pattern::before {
+        animation: none;
+    }
+}
+/* edicion de imagenes_trabajo */
+.imagenes_trabajo img {
+    border-radius: 12px;
+}
+
+/* ============ Galería tipo "dock": recuadros que crecen al pasar el mouse ============ */
+.galeria-stacked {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    height: 430px; /* <--- Subido de 390px a 430px para dar espacio al translateY hacia arriba */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 45px 40px 25px 40px; /* <--- Más padding arriba para que el hover no se corte */
+    overflow: visible;
+}
+
+/* TARJETAS */
+.galeria-stacked-item {
+    position: relative;
+    flex: 0 0 220px;
+    width: 220px;
+    height: 320px;
+    margin-left: -115px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 4px solid #ffffff;
+    background-color: #cbd5e1;
+    box-shadow: -15px 0 25px rgba(0,0,0,0.15);
+    transition:
+        transform 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+        filter 0.35s ease,
+        opacity 0.35s ease,
+        box-shadow 0.35s ease;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Primera imagen no necesita margen negativo */
+.galeria-stacked-item:first-child {
+    margin-left: 0;
+}
+
+/* IMAGEN */
+.galeria-stacked-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* MODO OSCURO */
+.dark .galeria-stacked-item {
+    border-color: #17212b;
+    background-color: #334155;
+    box-shadow: -15px 0 25px rgba(0,0,0,0.6);
+}
+
+/* IMAGEN SOBRE LA QUE ESTÁ EL CURSOR */
+.galeria-stacked-item:hover {
+    transform:
+        translateY(-25px)
+        scale(1.12);
+    z-index: 20;
+    filter: brightness(1);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.30);
+}
+.galeria-stacked-item:hover ~ .galeria-stacked-item {
+    transform: translateX(115px);
+}
+.galeria-stacked:hover
+.galeria-stacked-item:not(:hover) {
+    filter: brightness(0.60);
+}
+.galeria-stacked:not(:hover)
+.galeria-stacked-item {
+    filter: brightness(1);
+}
+
+/*
+   RESPONSIVE */
+@media (max-width: 900px) {
+    .galeria-stacked {
+        width: 100%;
+        max-width: 500px;
+        height: 350px;
+        padding: 20px 20px;
+        justify-content: center;
+        overflow: visible;
+    }
+    .galeria-stacked-item {
+        flex: 0 0 180px;
+        width: 180px;
+        height: 270px;
+        margin-left: -90px;
+    }
+    .galeria-stacked-item:first-child {
+        margin-left: 0;
+    }
+    .galeria-stacked-item:hover ~ .galeria-stacked-item {
+        transform: translateX(90px);
+    }
+}
+
+/*
+   CELULAR*/
+@media (max-width: 640px) {
+    .galeria-stacked {
+        width: 100%;
+        max-width: 100%;
+        height: 280px;
+        padding: 15px 5px;
+        justify-content: center;
+        /* evita que la galería ensanche la página */
+        overflow: hidden;
+    }
+    .galeria-stacked-item {
+        flex: 0 0 135px;
+        width: 135px;
+        height: 210px;
+        margin-left: -68px;
+    }
+    .galeria-stacked-item:first-child {
+        margin-left: 0;
+    }
+    .galeria-stacked-item:hover {
+        transform:
+            translateY(-12px)
+            scale(1.06);
+        z-index: 20;
+    }
+    .galeria-stacked-item:hover ~ .galeria-stacked-item {
+        transform: translateX(68px);
+    }
+}
+
+/* celular */
+@media (max-width: 380px) {
+    .galeria-stacked {
+        width: 100%;
+        max-width: 100%;
+        height: 250px;
+        padding: 10px 2px;
+        overflow: hidden;
+    }
+    .galeria-stacked-item {
+        flex: 0 0 120px;
+        width: 120px;
+        height: 190px;
+        margin-left: -60px;
+    }
+    .galeria-stacked-item:first-child {
+        margin-left: 0;
+    }
+    .galeria-stacked-item:hover {
+        transform:
+            translateY(-10px)
+            scale(1.05);
+    }
+    .galeria-stacked-item:hover ~ .galeria-stacked-item {
+        transform: translateX(60px);
+    }
+}
+
+/* Carrusel piramidal */
+* {
+    box-sizing: border-box;
+}
+
+/* CONTENEDOR */
+.galeria-carrusel {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        margin: 0 auto;
+}
+
+/* ÁREA DEL CARRUSEL */
+.carrusel {
+    position: relative;
+    width: 500px;
+    height: 300px;
+}
+
+/* IMÁGENES  -carrusl piramidal- */
+
+.imagen {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    left: 50%;
+    top: 50%;
+    border-radius: 15px;
+    overflow: hidden;
+    transition:
+        transform 0.6s ease,
+        opacity 0.6s ease,
+        filter 0.6s ease;
+    box-shadow: 0 15px 35px rgba(0,0,0,.25);
+    cursor: pointer;
+}
+
+.imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/*
+   IMAGEN PRINCIPAL*/
+.pos0 {
+    transform:
+        translate(-50%, -50%)
+        translateY(-70px)
+        scale(1.15);
+    z-index: 10;
+    opacity: 1;
+    filter: brightness(1);
+}
+
+/*
+   IMAGEN DERECHA */
+.pos1 {
+    transform:
+        translate(-50%, -50%)
+        translateX(230px)
+        translateY(20px)
+        scale(.82);
+    z-index: 8;
+    opacity: .75;
+    filter: brightness(.75);
+}
+
+/*
+   SEGUNDA DERECHA */
+.pos2 {
+    transform:
+        translate(-50%, -50%)
+        translateX(330px)
+        translateY(110px)
+        scale(.65);
+    z-index: 6;
+    opacity: .45;
+    filter: brightness(.6);
+}
+
+/* 
+   IZQUIERDA */
+.pos4 {
+    transform:
+        translate(-50%, -50%)
+        translateX(-230px)
+        translateY(20px)
+        scale(.82);
+    z-index: 8;
+    opacity: .75;
+    filter: brightness(.75);
+}
+
+/* 
+   SEGUNDA IZQUIERDA */
+.pos3 {
+    transform:
+        translate(-50%, -50%)
+        translateX(-330px)
+        translateY(110px)
+        scale(.65);
+    z-index: 6;
+    opacity: .45;
+    filter: brightness(.6);
+}
+
+/* 
+   FLECHAS */
+.flecha {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    transform: translateY(-50%);
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,.65);
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 20;
+    transition: .25s;
+}
+.flecha:hover {
+    background: rgba(0,0,0,.9);
+    transform:
+        translateY(-50%)
+        scale(1.1);
+}
+.flecha.izquierda {
+    left: 20px;
+}
+.flecha.derecha {
+    right: 20px;
+}
+
+/*
+   TEXTO
+   */
+.titulo {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 18px;
+    background: rgba(0,0,0,.65);
+    color: white;
+    border-radius: 20px;
+    z-index: 15;
+}
+
+
+/*
+   RESPONSIVE*/
+
+@media (max-width: 700px) {
+
+    .galeria {
+        width: 100%;
+    }
+
+    .carrusel {
+        width: 100%;
+    }
+    .imagen {
+        width: 220px;
+        height: 150px;
+    }
+    .pos1 {
+        transform:
+            translate(-50%, -50%)
+            translateX(130px)
+            translateY(20px)
+            scale(.75);
+    }
+    .pos2 {
+        opacity: 0;
+    }
+    .pos4 {
+        transform:
+            translate(-50%, -50%)
+            translateX(-130px)
+            translateY(20px)
+            scale(.75);
+    }
+    .pos3 {
+        opacity: 0;
+    }
+}
+header {
+    max-width: 100vw;
+}
+
+/*responsive */
+@media (max-width: 1024px) {
+    main {
+        overflow-x: hidden;   /* respaldo para navegadores antiguos */
+        overflow-x: clip;     /* navegadores modernos */
+    }
+}
+
+@media (max-width: 700px) {
+    .galeria {
+        height: 320px;
+    }
+    .carrusel {
+        height: 320px;
+    }
+    /* Las imágenes ocultas no deben recibir toques */
+    .pos2,
+    .pos3 {
+        pointer-events: none;
+    }
+}
+
+
+/* ==========================================================
+   CLASES EXTRAÍDAS DEL index.html
+   Antes eran cadenas de utilidades Tailwind repetidas en el HTML.
+   ========================================================== */
+:root { --sec-light: #fff; --sec-alt: #f1f5f9; --sec-border: #e2e8f0; }
+html.dark { --sec-light: #0f1720; --sec-alt: #111a23; --sec-border: rgba(255,255,255,.1); }
+
+/* Secciones */
+.section-light, .section-alt {
+    border-top: 1px solid var(--sec-border);
+    border-bottom: 1px solid var(--sec-border);
+    padding: 5rem 0;
+    transition: background-color .3s, border-color .3s;
+}
+.section-light { background-color: var(--sec-light); }
+.section-alt { background-color: var(--sec-alt); }
+
+/* Navegación, etiquetas y chips */
+.nav-link { font-size: .875rem; font-weight: 600; color: #475569; }
+.nav-link:hover { color: var(--steel-blue); }
+html.dark .nav-link { color: #cbd5e1; }
+html.dark .nav-link:hover { color: #7dd3fc; }
+.chip-list { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: .75rem; }
+.chip { border-radius: 9999px; background: #f0f9ff; padding: .5rem 1rem; font-size: .875rem; font-weight: 600; color: #0c4a6e; }
+html.dark .chip { background: rgba(255,255,255,.1); color: #bae6fd; }
+
+/* Textos */
+.text-copy { margin-top: 1rem; line-height: 1.75rem; color: #475569; }
+html.dark .text-copy { color: #cbd5e1; }
+
+/* Tarjetas */
+.card-plain { border-radius: .5rem; background: #fff; padding: 1.75rem; box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+html.dark .card-plain { background: #0f1720; box-shadow: none; }
+.card-servicio { border-radius: .75rem; border: 1px solid #e2e8f0; padding: 1.75rem; box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+html.dark .card-servicio { border-color: rgba(255,255,255,.1); box-shadow: none; }
+.card-sede { border-radius: .5rem; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.05); padding: 1.75rem; }
+.icon-box { display: flex; width: 2.75rem; height: 2.75rem; align-items: center; justify-content: center; border-radius: .25rem; background: #f0f9ff; font-size: 1.25rem; color: var(--steel-blue); }
+html.dark .icon-box { background: rgba(255,255,255,.05); }
+
+/* Ficha de datos de la empresa */
+.data-cell { background: #fff; padding: 1.5rem; }
+html.dark .data-cell { background: #0f1720; }
+.data-term { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .025em; color: #64748b; }
+html.dark .data-term { color: #94a3b8; }
+
+/* Opciones del select (modo oscuro) */
+.select-input option { 
+    background: #fff; color: #334155; }
+html.dark .select-input option { background: #1a2633; color: #fff; }
+
+/* ==========================================================
+   FORMULARIO: pantalla de carga mientras se envía
+   Cubre solo el formulario y bloquea cualquier clic.
+   ========================================================== */
+.form-cotizacion { position: relative; }
+.form-loading {
+    position: absolute; inset: -.5rem; z-index: 20;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
+    border-radius: .75rem; text-align: center;
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+    cursor: progress;
+}
+.form-loading[hidden] { display: none; }
+html.dark .form-loading { background: rgba(15,23,32,.88); }
+.form-loading p { font-weight: 700; color: var(--steel-dark); }
+.form-loading small { font-size: .8rem; color: #64748b; }
+html.dark .form-loading p { color: #fff; }
+html.dark .form-loading small { color: #94a3b8; }
+.form-loading-spinner {
+    width: 2.75rem; height: 2.75rem; border-radius: 50%;
+    border: 3px solid rgba(22,104,168,.2); border-top-color: var(--steel-blue);
+    animation: girar .8s linear infinite;
+}
+@keyframes girar { to { transform: rotate(360deg); } }
+.form-error { border-radius: .5rem; background: #fef2f2; padding: .75rem 1rem; font-size: .875rem; font-weight: 600; color: #b91c1c; }
+html.dark .form-error { background: rgba(239,68,68,.1); color: #fca5a5; }
