@@ -1,0 +1,116 @@
+/* ==========================================================
+   planchas.css · complementa a productos-acero-h2.css
+   Solo contiene lo propio de la página de planchas.
+   Usa las mismas variables (--steel-blue, --sec-border, ...)
+   ========================================================== */
+
+/* ---------- Menú desplegable de secciones ---------- */
+.menu-secciones { position: relative; }
+.menu-secciones-btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    height: 2.5rem; padding: 0 .9rem;
+    border-radius: 9999px; border: 1px solid #e2e8f0; background: transparent;
+    font-size: .875rem; font-weight: 600; color: #475569; cursor: pointer;
+    transition: border-color .2s, color .2s;
+}
+.menu-secciones-btn:hover { border-color: var(--steel-blue); color: var(--steel-blue); }
+.menu-secciones-btn i { font-size: .7rem; transition: transform .2s; }
+.menu-secciones-btn[aria-expanded="true"] i { transform: rotate(180deg); }
+html.dark .menu-secciones-btn { border-color: rgba(255,255,255,.15); color: #cbd5e1; }
+html.dark .menu-secciones-btn:hover { border-color: #7dd3fc; color: #7dd3fc; }
+
+.menu-secciones-panel {
+    position: absolute; right: 0; top: calc(100% + .5rem); z-index: 70;
+    width: 18rem; max-width: calc(100vw - 1.5rem);
+    padding: .4rem; border-radius: .6rem;
+    border: 1px solid #e2e8f0; background: #fff;
+    box-shadow: 0 10px 30px rgba(15,23,42,.15);
+}
+.menu-secciones-panel[hidden] { display: none; }
+html.dark .menu-secciones-panel { background: #1a2633; border-color: rgba(255,255,255,.12); box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+
+.menu-secciones-item {
+    display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+    padding: .6rem .75rem; border-radius: .4rem;
+    font-size: .875rem; font-weight: 600; color: #475569;
+}
+.menu-secciones-item small { font-weight: 500; color: #94a3b8; }
+.menu-secciones-item:hover { background: #f1f5f9; color: var(--steel-blue); }
+.menu-secciones-item[aria-current="true"] { background: #f0f9ff; color: var(--steel-blue); }
+html.dark .menu-secciones-item { color: #cbd5e1; }
+html.dark .menu-secciones-item:hover { background: rgba(255,255,255,.08); color: #7dd3fc; }
+html.dark .menu-secciones-item[aria-current="true"] { background: rgba(255,255,255,.1); color: #7dd3fc; }
+
+/* ---------- Chips del banner (enlaces a cada sección) ---------- */
+a.chip-link { transition: background-color .2s, color .2s; }
+a.chip-link:hover { background: #fff; color: var(--steel-dark); }
+.hero-chips .chip { background: rgba(255,255,255,.12); color: #e0f2fe; border: 1px solid rgba(255,255,255,.2); }
+.hero-chips .chip:hover { background: #fff; color: var(--steel-dark); }
+
+/* ---------- Sección de un tipo de plancha ---------- */
+.tipo-layout { display: grid; gap: 2.5rem; margin-top: 2.5rem; }
+@media (min-width: 1024px) {
+    .tipo-layout { grid-template-columns: 22rem 1fr; align-items: start; gap: 3rem; }
+    .tipo-ficha { position: sticky; top: 6.5rem; }
+}
+
+.tipo-imagen {
+    display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+    border-radius: .75rem; border: 1px solid var(--sec-border);
+    background: #e2e8f0;
+}
+.tipo-nombre { margin-top: 1.25rem; font-size: 1.25rem; font-weight: 800; color: var(--steel-dark); }
+html.dark .tipo-nombre { color: #fff; }
+.tipo-sub { font-size: .875rem; font-weight: 600; color: var(--steel-blue); }
+html.dark .tipo-sub { color: #7dd3fc; }
+.tipo-descripcion { margin-top: .75rem; line-height: 1.7; color: #475569; font-size: .95rem; }
+html.dark .tipo-descripcion { color: #cbd5e1; }
+.tipo-ficha .chip-list { margin-top: 1rem; gap: .5rem; }
+.tipo-ficha .chip { font-size: .8rem; padding: .35rem .75rem; }
+
+.lista-cabecera { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.lista-titulo { font-size: 1.125rem; font-weight: 800; color: var(--steel-dark); }
+html.dark .lista-titulo { color: #fff; }
+.lista-cantidad { font-size: .875rem; color: #64748b; }
+html.dark .lista-cantidad { color: #94a3b8; }
+
+/* ---------- Filas de espesores ---------- */
+.plancha-lista { display: grid; gap: .75rem; margin-top: 1rem; list-style: none; padding: 0; }
+@media (min-width: 768px) { .plancha-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.plancha-row {
+    display: flex; align-items: center; gap: 1rem;
+    padding: .875rem 1rem; border-radius: .75rem;
+    border: 1px solid #e2e8f0; background: #fff;
+    transition: border-color .2s;
+}
+.plancha-row:hover { border-color: var(--steel-blue); }
+html.dark .plancha-row { background: #0f1720; border-color: rgba(255,255,255,.1); }
+html.dark .plancha-row:hover { border-color: #7dd3fc; }
+
+.plancha-thumb { width: 3rem; height: 3rem; flex: none; border-radius: .5rem; object-fit: cover; }
+.plancha-medida { min-width: 4.75rem; line-height: 1.15; }
+.plancha-mm { font-size: 1.5rem; font-weight: 800; letter-spacing: -.02em; color: var(--steel-dark); }
+.plancha-mm small { margin-left: .15rem; font-size: .75rem; font-weight: 600; color: #64748b; }
+.plancha-pulg { display: block; margin-top: .15rem; font-size: .75rem; font-weight: 600; color: #64748b; }
+html.dark .plancha-mm { color: #fff; }
+html.dark .plancha-mm small, html.dark .plancha-pulg { color: #94a3b8; }
+
+.plancha-info { flex: 1; min-width: 0; }
+.plancha-tipo { font-size: .875rem; font-weight: 700; color: var(--steel-dark); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.plancha-sub { font-size: .75rem; color: #64748b; }
+html.dark .plancha-tipo { color: #fff; }
+html.dark .plancha-sub { color: #94a3b8; }
+
+.btn-sm { padding: .5rem 1rem; font-size: .875rem; border-radius: .5rem; white-space: nowrap; }
+
+/* ---------- Llamado final ---------- */
+.cta-final { text-align: center; }
+.cta-final .btn-primary { margin-top: 1.5rem; background: #fff; color: var(--steel-dark); }
+.cta-final .btn-primary:hover { background: #e2e8f0; }
+
+/* Foco visible para teclado */
+.menu-secciones-btn:focus-visible, .menu-secciones-item:focus-visible,
+.btn-primary:focus-visible, .nav-link:focus-visible {
+    outline: 2px solid var(--steel-blue); outline-offset: 2px;
+}

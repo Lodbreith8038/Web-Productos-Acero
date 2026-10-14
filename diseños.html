@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Catálogo de diseños AutoCAD de Productos de Acero E.I.R.L., listos para corte y fabricación en planchas LAC, LAF, galvanizadas e inoxidables.">
+    <title>Catálogo de Diseños AutoCAD | Productos de Acero E.I.R.L.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/productos-acero-h2.css">
+    <link rel="stylesheet" href="/CSS/catalogo-autocad.css">
+    <link rel="icon" type="image/png" sizes="192x192" href="/imagenes/favicon.png">
+    <link rel="shortcut icon" href="/imagenes/favicon.png">
+
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { steel: { dark: '#17212b', blue: '#1668a8' } } } } }
+    </script>
+    <script>
+            // Aplica el tema (oscuro/claro) igual que index.html
+            (function () {
+                const guardado = localStorage.getItem('tema');
+                const prefiereOscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (guardado === 'oscuro' || (!guardado && prefiereOscuro)) {
+                    document.documentElement.classList.add('dark');
+                }
+            })();
+    </script>
+</head>
+
+<body class="page-body">
+    <!-- Lo utiliza /JS/catalogo-autocad.js para seguir el mouse -->
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <nav class="site-nav">
+            <a href="index.html" class="site-brand">
+                <img src="imagenes/LOGO.png" alt="Logotipo de Productos de Acero E.I.R.L.">
+                <span>PRODUCTOS<br>DE ACERO E.I.R.L.</span>
+            </a>
+            <div class="site-menu">
+                <div class="site-links">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <div class="nav-dropdown">
+                        <button type="button" class="nav-dropdown-btn nav-link" aria-haspopup="true">
+                            Materiales
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <a href="#taller">Taller</a>
+                            <a href="#lac">LAC</a>
+                            <a href="#laf">LAF</a>
+                            <a href="#galv">Galvanizado</a>
+                            <a href="#inox">Inoxidable</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <button type="button" class="nav-dropdown-btn nav-link" aria-haspopup="true">
+                            Catálogo
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <a href="diseños.html">Diseños</a>
+                            <a href="planchas.html">Planchas</a>
+                        </div>
+                    </div>
+                    <a href="index.html#cotizacion" class="nav-link">Cotización</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </div>
+                <button id="temaToggle" type="button" class="theme-toggle"
+                    aria-label="Cambiar entre modo claro y oscuro" title="Cambiar tema">
+                    <i id="temaIconoSol" class="fa-solid fa-sun"></i>
+                    <i id="temaIconoLuna" class="fa-solid fa-moon hidden"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="inicio">
+        <!-- ====================================================================
+             DÓNDE CAMBIAR CADA COSA
+             · Nombre / descripción de una tarjeta ........ /JS/catalogo-datos.js
+             · Añadir un DXF .............................. python dxf_a_catalogo.py archivo.dxf
+             · Título, texto largo y chips de una sección . aquí abajo (busca «TEXTOS EDITABLES»)
+             · Color de una sección ....................... acento: en /JS/catalogo-datos.js
+             · Estilo de las tarjetas ..................... /CSS/catalogo-autocad.css
+             · Añadir una sección de material nueva:
+                 1) copia un bloque <section> de abajo,
+                 2) cambia su id y data-m="NUEVO" en el <div class="diseno-grid">,
+                 3) crea NUEVO: { acento, disenos } en catalogo-datos.js.
+             Las tarjetas NO se escriben aquí: las genera catalogo-autocad.js.
+             ==================================================================== -->
+        <!-- BANNER PRINCIPAL -->
+        <section class="hero-pattern hero-section">
+            <canvas class="starfield" id="heroStars" aria-hidden="true"></canvas>
+            <div class="hero-inner">
+                <div>
+                    <p class="section-label hero-eyebrow">Diseños AutoCAD · Corte · Plancha de acero</p>
+                    <h1 class="hero-title">Catálogo de diseños<br>
+                        <span class="hero-title-strong">listos para corte y fabricación</span><br>
+                        <span class="hero-title-soft">en plancha de acero.</span>
+                    </h1>
+                    <p class="hero-lead">Explora nuestros planos en AutoCAD organizados por tipo de plancha: LAC, LAF,
+                        acero galvanizado y acero inoxidable. Elige uno y pídenos la cotización.</p>
+                    <div class="hero-actions">
+                        <a href="#taller" class="btn-hero btn-hero-blue">Ver catálogo</a>
+                        <a href="#galv" class="btn-hero btn-hero-outline">Por material</a>
+                        <a href="#cotizar" class="btn-hero btn-hero-light">Solicitar cotización</a>
+                    </div>
+                </div>
+                <!-- Plano decorativo del lado derecho -->
+                <div class="hero-media">
+                    <div class="video-card">
+                        <svg id="heroSvg" class="hero-plano" viewBox="0 0 480 300" role="img"
+                            aria-label="Plano técnico de una plancha con ranuras"></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DISEÑOS DEL TALLER (archivos DXF predeterminados) -->
+        <section id="taller" class="section-light">
+            <div class="page-max-width">
+                <!-- TEXTOS EDITABLES de esta sección: etiqueta, título, descripción y chips -->
+                <p class="cat-tag section-label">Sección 01 · Diseños del taller</p>
+                <h2 class="title-section">Diseños listos para cortar</h2>
+                <p class="text-copy cat-lead">Archivos DXF de nuestro taller: figuras, escudos, logotipos y letras. Se
+                    pueden cortar en el material y espesor que necesites; indícalo al cotizar.</p>
+                <div class="chip-list">
+                    <span class="chip">Corte láser</span>
+                    <span class="chip">Letreros</span>
+                    <span class="chip">Decoración</span>
+                    <span class="chip">Señalética</span>
+                </div>
+                <!-- Tarjetas: se generan solas desde catalogo-datos.js (clave data-m) -->
+                <div class="diseno-grid" data-m="TALLER"></div>
+            </div>
+        </section>
+
+        <section id="lac" class="section-alt">
+            <div class="page-max-width">
+                <!-- TEXTOS EDITABLES de esta sección: etiqueta, título, descripción y chips -->
+                <p class="cat-tag section-label">Sección 02</p>
+                <h2 class="title-section">Plancha LAC · Laminada en caliente</h2>
+                <p class="text-copy cat-lead">Planchas de uso estructural y pesado. Diseños para soportes, bases,
+                    bridas y piezas de gran espesor.</p>
+                <div class="chip-list"><span class="chip">Estructuras</span><span class="chip">Espesores
+                        gruesos</span><span class="chip">Corte láser / plasma</span></div>
+                <!-- Tarjetas: se generan solas desde catalogo-datos.js (clave data-m) -->
+                <div class="diseno-grid" data-m="LAC"></div>
+            </div>
+        </section>
+
+        <section id="laf" class="section-light">
+            <div class="page-max-width">
+                <!-- TEXTOS EDITABLES de esta sección: etiqueta, título, descripción y chips -->
+                <p class="cat-tag section-label">Sección 03</p>
+                <h2 class="title-section">Plancha LAF · Laminada en frío</h2>
+                <p class="text-copy cat-lead">Acabado liso y mayor precisión dimensional. Ideal para gabinetes, tapas,
+                    paneles y piezas de detalle.</p>
+                <div class="chip-list"><span class="chip">Acabado fino</span><span class="chip">Precisión</span><span
+                        class="chip">Plegado y corte</span></div>
+                <!-- Tarjetas: se generan solas desde catalogo-datos.js (clave data-m) -->
+                <div class="diseno-grid" data-m="LAF"></div>
+            </div>
+        </section>
+
+        <section id="galv" class="section-alt">
+            <div class="page-max-width">
+                <!-- TEXTOS EDITABLES de esta sección: etiqueta, título, descripción y chips -->
+                <p class="cat-tag section-label">Sección 04</p>
+                <h2 class="title-section">Acero galvanizado</h2>
+                <p class="text-copy cat-lead">Resistencia a la corrosión para exteriores, ductos, techos y
+                    cerramientos. Diseños listos para producción.</p>
+                <div class="chip-list"><span class="chip">Anticorrosivo</span><span class="chip">Exteriores</span><span
+                        class="chip">Ductería</span></div>
+                <!-- Tarjetas: se generan solas desde catalogo-datos.js (clave data-m) -->
+                <div class="diseno-grid" data-m="GALV"></div>
+            </div>
+        </section>
+
+        <section id="inox" class="section-light">
+            <div class="page-max-width">
+                <!-- TEXTOS EDITABLES de esta sección: etiqueta, título, descripción y chips -->
+                <p class="cat-tag section-label">Sección 05</p>
+                <h2 class="title-section">Acero inoxidable</h2>
+                <p class="text-copy cat-lead">Diseños para industria alimentaria, mobiliario y decoración, con
+                    acabados higiénicos y duraderos.</p>
+                <div class="chip-list"><span class="chip">Higiene</span><span class="chip">Decorativo</span><span
+                        class="chip">Alta durabilidad</span></div>
+                <!-- Tarjetas: se generan solas desde catalogo-datos.js (clave data-m) -->
+                <div class="diseno-grid" data-m="INOX"></div>
+            </div>
+        </section>
+
+        <!-- LLAMADO A COTIZAR -->
+        <section id="cotizar" class="section-dark">
+            <canvas class="starfield" id="ctaStars" aria-hidden="true"></canvas>
+            <div class="page-max-width cat-cta">
+                <p class="cat-tag section-label cat-tag-sky">Cotización</p>
+                <h2 class="title-section cat-cta-title">¿Tienes un diseño o necesitas uno?</h2>
+                <p class="cat-cta-text">Envíanos tu archivo DWG o elige un modelo del catálogo y te cotizamos el corte.
+                </p>
+                <a href="index.html#cotizacion" class="btn-hero btn-hero-light">Solicitar cotización</a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto" class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="imagenes/LOGO.png" alt="Logotipo de Productos de Acero E.I.R.L." class="footer-logo">
+                <div>
+                    <p class="footer-name">PRODUCTOS DE ACERO E.I.R.L.</p>
+                    <p class="footer-desc">Productos y transformacion de acero, ferreteria y materiales en Arequipa.</p>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <p class="footer-contact-title">Contacto</p>
+                <a class="contact-link footer-phone" href="tel:+51954182811">+51 954 182 811</a>
+                <p class="footer-hours">Lunes a viernes: 8:00 AM - 6:00 PM</p>
+                <p class="footer-hours">Sabados: 8:00 AM - 3:00 PM</p>
+            </div>
+        </div>
+        <p class="footer-copy">© 2026 Productos de Acero E.I.R.L. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/51954182811" id="whatsappFloat" class="whatsapp-float" aria-label="Contactar por WhatsApp"
+        title="Escríbenos por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- ORDEN OBLIGATORIO (defer lo respeta):
+         1. disenos-dxf.js     dibujos de los DXF · AUTOMÁTICO, no se edita
+         2. catalogo-datos.js  nombres y descripciones · SE EDITA AQUÍ EL CONTENIDO
+         3. catalogo-autocad.js lógica de la página -->
+    <script src="/JS/disenos-dxf.js" defer></script>
+    <script src="/JS/catalogo-datos.js" defer></script>
+    <script src="/JS/catalogo-autocad.js" defer></script>
+</body>
+
+</html>

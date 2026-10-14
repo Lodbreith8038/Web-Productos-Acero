@@ -1,0 +1,103 @@
+/*
+============================================================
+CATÁLOGO DE DISEÑOS AUTOCAD — CSS (solo lo propio de diseños.html)
+Productos de Acero E.I.R.L.
+
+Encabezado, banner, botones, secciones, chips, pie, WhatsApp,
+cursor, estrellas y tema oscuro se heredan de
+/CSS/productos-acero-h2.css (se carga antes que este archivo).
+
+00. Variables del catálogo (claro / oscuro)
+01. Plano decorativo del banner
+02. Encabezados de sección
+03. Cuadrícula y tarjetas de diseño
+04. Llamado a cotizar
+============================================================
+*/
+
+/* ==========================================================
+   00. VARIABLES DEL CATÁLOGO
+   Colores de tarjetas y miniaturas. El tema oscuro usa la
+   clase html.dark, igual que el resto del sitio.
+   ========================================================== */
+:root {
+    --cat-surface: #fff;
+    --cat-line: #e2e8f0;
+    --cat-thumb: #f4f8fb;
+    --cat-grid: rgba(22, 104, 168, .12);
+    --cat-draw: #17212b;      /* usado por las cotas dentro de los SVG */
+    --cat-muted: #475569;
+}
+html.dark {
+    --cat-surface: #0f1720;
+    --cat-line: rgba(255, 255, 255, .1);
+    --cat-thumb: #0b121a;
+    --cat-grid: rgba(120, 190, 255, .1);
+    --cat-draw: #e2e8f0;
+    --cat-muted: #cbd5e1;
+}
+
+/* ==========================================================
+   01. PLANO DECORATIVO DEL BANNER
+   Se dibuja con JavaScript dentro de #heroSvg.
+   ========================================================== */
+.hero-plano { display: block; width: 100%; height: auto; border-radius: .75rem; background: #0b121a; }
+
+/* ==========================================================
+   02. ENCABEZADOS DE SECCIÓN
+   ========================================================== */
+.cat-tag { font-size: .75rem; font-weight: 700; color: var(--steel-blue); }
+html.dark .cat-tag { color: #7dd3fc; }
+.cat-tag-sky { color: #7dd3fc; }
+.cat-lead { max-width: 42rem; }
+
+/* ==========================================================
+   03. CUADRÍCULA Y TARJETAS DE DISEÑO
+   Las tarjetas .diseno-card las genera catalogo-autocad.js
+   dentro de cada contenedor .diseno-grid. El color de acento
+   de cada material llega en la variable --ac.
+   ========================================================== */
+.diseno-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.2rem;
+}
+.diseno-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--cat-surface);
+    border: 1px solid var(--cat-line);
+    border-top: 3px solid var(--ac);
+    border-radius: .75rem;
+    transition: transform .25s, box-shadow .25s;
+}
+.diseno-card:hover { transform: translateY(-4px); box-shadow: 0 18px 30px -12px rgba(0, 0, 0, .35); }
+
+.diseno-thumb {
+    background-color: var(--cat-thumb);
+    background-image: linear-gradient(var(--cat-grid) 1px, transparent 1px), linear-gradient(90deg, var(--cat-grid) 1px, transparent 1px);
+    background-size: 16px 16px;
+}
+.diseno-thumb svg { display: block; width: 100%; height: auto; }
+
+.diseno-info { display: flex; flex: 1; flex-direction: column; padding: 1.1rem 1.2rem 1.3rem; }
+.diseno-codigo { font-size: .7rem; font-weight: 800; letter-spacing: .1em; color: var(--ac); }
+.diseno-nombre { margin: .3rem 0 .4rem; font-size: 1.05rem; font-weight: 700; line-height: 1.3; color: var(--steel-dark); }
+html.dark .diseno-nombre { color: #fff; }
+.diseno-desc { font-size: .85rem; line-height: 1.5; color: var(--cat-muted); }
+.diseno-meta { margin-top: .5rem; font-size: .75rem; font-weight: 600; color: #64748b; }
+html.dark .diseno-meta { color: #94a3b8; }
+.diseno-cotizar { align-self: flex-start; margin-top: auto; padding-top: .8rem; font-size: .85rem; font-weight: 700; color: var(--steel-blue); }
+.diseno-cotizar:hover { text-decoration: underline; }
+html.dark .diseno-cotizar { color: #7dd3fc; }
+
+/* ==========================================================
+   04. LLAMADO A COTIZAR
+   Usa .section-dark (compartida) y centra el contenido.
+   ========================================================== */
+.cat-cta { text-align: center; }
+.cat-cta-title { color: #fff; }
+html.dark .cat-cta-title { color: #fff; }
+.cat-cta-text { margin: 1rem auto 2rem; max-width: 34rem; line-height: 1.7; color: #cbd5e1; }

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Planchas de acero LAC, LAF, inoxidable y galvanizado por espesor en Arequipa. Cotiza en línea con Productos de Acero E.I.R.L.">
+    <title>Planchas de acero | Productos de Acero E.I.R.L.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/productos-acero-h2.css">
+    <link rel="stylesheet" href="/CSS/planchas.css">
+    <link rel="icon" type="image/png" sizes="96x96" href="/imagenes/favicon.png">
+    <link rel="shortcut icon" href="/imagenes/favicon.png">
+
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { steel: { dark: '#17212b', blue: '#1668a8' } } } } }
+    </script>
+    <script>
+        // Aplica el tema (oscuro/claro) antes de pintar la página
+        (function () {
+            const guardado = localStorage.getItem('tema');
+            const prefiereOscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (guardado === 'oscuro' || (!guardado && prefiereOscuro)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+</head>
+
+<body
+    class="bg-slate-50 text-slate-800 antialiased transition-colors duration-300 dark:bg-[#0d141c] dark:text-slate-200">
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+    <!-- ===================== ENCABEZADO ===================== -->
+    <header
+        class="fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur transition-colors dark:border-white/10 dark:bg-[#0d141c]/90">
+        <nav class="mx-auto flex h-20 max-w-7xl items-center justify-between px-2 sm:px-6 lg:px-8">
+            <a href="index.html" class="flex items-center gap-3 text-steel-dark dark:text-white">
+                <img src="imagenes/LOGO.png" alt="Logotipo de Productos de Acero E.I.R.L."
+                    class="h-11 w-11 object-contain">
+                <span class="text-sm font-extrabold leading-tight tracking-tight sm:text-base">PRODUCTOS<br>DE ACERO
+                    E.I.R.L.</span>
+            </a>
+
+            <div class="flex items-center gap-2 sm:gap-4">
+                <div class="hidden items-center gap-7 md:flex">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="diseños.html" class="nav-link">Diseños</a>
+                    <a href="index.html#cotizacion" class="nav-link">Cotización</a>
+                    <a href="index.html#sedes" class="nav-link">Sedes</a>
+                </div>
+
+                <!-- Menú desplegable con todas las secciones (se llena desde planchas-data.js) -->
+                <div class="menu-secciones" id="menuSecciones">
+                    <button type="button" class="menu-secciones-btn" id="menuSeccionesBtn" aria-expanded="false"
+                        aria-controls="menuSeccionesPanel">
+                        Tipos de plancha <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="menu-secciones-panel" id="menuSeccionesPanel" hidden></div>
+                </div>
+
+                <button id="temaToggle" type="button" aria-label="Cambiar entre modo claro y oscuro"
+                    title="Cambiar tema"
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-steel-blue hover:text-steel-blue dark:border-white/15 dark:text-slate-300 dark:hover:text-sky-300">
+                    <i id="temaIconoSol" class="fa-solid fa-sun"></i>
+                    <i id="temaIconoLuna" class="fa-solid fa-moon hidden"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="relative z-10">
+
+        <!-- ===================== BANNER ===================== -->
+        <section class="hero-pattern relative flex min-h-[460px] items-center overflow-hidden pt-20 text-white">
+            <canvas class="starfield" id="heroStars" aria-hidden="true"></canvas>
+            <div class="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+                <p class="section-label mb-5 text-xs font-bold text-sky-300">Venta de planchas de acero</p>
+                <h1 class="max-w-3xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+                    Elige tu plancha por tipo y espesor
+                </h1>
+                <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200">
+                    LAC, LAF, acero inoxidable y galvanizado, desde láminas delgadas hasta planchas de 2 pulgadas.
+                    Selecciona el espesor que necesitas y cotiza en un clic.
+                </p>
+                <!-- Accesos rápidos a cada sección (se llenan desde planchas-data.js) -->
+                <div class="chip-list hero-chips" id="chipsTipos"></div>
+            </div>
+        </section>
+
+        <!-- ===================== CATÁLOGO ===================== -->
+        <!-- Cada tipo de plancha se genera aquí desde planchas-data.js -->
+        <div id="catalogo">
+            <noscript>
+                <section class="section-light">
+                    <div class="page-max-width">
+                        <p class="text-copy">Activa JavaScript para ver el catálogo de planchas o
+                            <a class="text-steel-blue" href="index.html#cotizacion">solicita tu cotización aquí</a>.</p>
+                    </div>
+                </section>
+            </noscript>
+        </div>
+
+        <!-- ===================== LLAMADO FINAL ===================== -->
+        <section id="medida"
+            class="relative overflow-hidden border-y border-slate-200 bg-steel-dark py-20 text-white dark:border-white/10">
+            <canvas class="starfield" id="ctaStars" aria-hidden="true"></canvas>
+            <div class="relative z-10 page-max-width cta-final">
+                <h2 class="text-3xl font-extrabold tracking-tight">¿No ves el espesor o el tipo que buscas?</h2>
+                <p class="mx-auto mt-4 max-w-2xl leading-7 text-slate-300">
+                    Cuéntanos qué necesitas. También cortamos y transformamos planchas según tu plano.
+                </p>
+                <a href="index.html#cotizacion" class="btn-primary">
+                    <i class="fa-solid fa-paper-plane"></i> Solicitar cotización
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== PIE DE PÁGINA ===================== -->
+    <footer id="contacto" class="bg-slate-950 py-12 text-slate-300">
+        <div class="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-4 sm:px-6 md:flex-row lg:px-8">
+            <div class="flex items-start gap-3">
+                <img src="imagenes/LOGO.png" alt="Logotipo de Productos de Acero E.I.R.L."
+                    class="h-12 w-12 rounded bg-white object-contain p-1">
+                <div>
+                    <p class="text-lg font-extrabold text-white">PRODUCTOS DE ACERO E.I.R.L.</p>
+                    <p class="mt-2 max-w-md text-sm leading-6">Productos y transformacion de acero, ferreteria y
+                        materiales en Arequipa.</p>
+                </div>
+            </div>
+            <div class="md:text-right">
+                <p class="text-sm font-bold text-white">Contacto</p>
+                <a class="contact-link mt-2 inline-block text-sm text-sky-300" href="tel:+51954182811">+51 954 182
+                    811</a>
+                <p class="mt-2 text-xs text-slate-500">Lunes a viernes: 8:00 AM - 6:00 PM</p>
+                <p class="mt-2 text-xs text-slate-500">Sabados: 8:00 AM - 3:00 PM</p>
+            </div>
+        </div>
+        <p class="mx-auto mt-10 max-w-7xl border-t border-white/10 px-4 pt-6 text-xs text-slate-500 sm:px-6 lg:px-8">©
+            2026 Productos de Acero E.I.R.L. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/51954182811" id="whatsappFloat"
+        class="fixed bottom-6 right-6 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition hover:scale-105 hover:shadow-xl"
+        aria-label="Contactar por WhatsApp" title="Escríbenos por WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Primero los datos, luego la lógica -->
+    <script src="/JS/planchas-data.js"></script>
+    <script src="/JS/planchas.js"></script>
+</body>
+
+</html>
